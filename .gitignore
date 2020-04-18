@@ -29,3 +29,5 @@ build/
 
 ### VS Code ###
 .vscode/
+
+./src/main/resources/db/migration/V2__add_players.sql

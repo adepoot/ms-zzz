@@ -1,17 +1,27 @@
 package com.antondepoot.zzz.domain.entities;
 
-import javax.persistence.Column;
+import lombok.Data;
 
+import javax.persistence.*;
+import java.util.UUID;
+
+@Data
+@Entity
+@Table(name = "goals")
 public class Goal {
 
-    @Column(name = "player_id")
+    @Id
+    private UUID id;
+
+    @ManyToOne
     private Player scorer;
 
-    @Column(name = "game_id")
-    private Game game;
+//    @ManyToOne
+//    private Game game;
 
-    @Column(name = "assist_id")
+    @ManyToOne
     private Player assister;
 
+    @Column(name = "penalty")
     private boolean penalty;
 }

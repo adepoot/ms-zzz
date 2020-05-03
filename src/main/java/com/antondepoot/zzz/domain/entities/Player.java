@@ -2,6 +2,8 @@ package com.antondepoot.zzz.domain.entities;
 
 
 import lombok.Data;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -26,18 +28,17 @@ public class Player {
     @Column(name = "nickname")
     private String nickName;
 
-    @Temporal(TemporalType.DATE)
+    @Column(name = "birthday", columnDefinition = "DATE")
     private ZonedDateTime birthday;
 
     @Email
     private String email;
 
-    @Column(name = "goal_id")
-    @ElementCollection
-    @CollectionTable(name = "goals", joinColumns = @JoinColumn(name = "player_id"))
+    @OneToMany(mappedBy = "scorer")
     private Collection<Goal> goals;
 
     @Column(name = "created_at")
+    @CreatedDate
     private ZonedDateTime createdAt;
 
     @Column(name = "deleted_at")

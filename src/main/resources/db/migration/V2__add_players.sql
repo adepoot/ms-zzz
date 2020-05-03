@@ -1,4 +1,4 @@
-INSERT INTO players (first_name, last_name, nick_name, email, birthday)
+INSERT INTO players (first_name, last_name, nickname, email, birthday)
 VALUES
 	('Alexandre', 'da Silva', 'Pato', 'apato@gmail.com', '1989-09-02'),
 	('Thierry', 'Henri', null, 'th@gmail.com', '1977-08-17'),

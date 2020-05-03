@@ -3,12 +3,12 @@ package com.antondepoot.zzz.domain.entities;
 
 import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
-import java.time.ZonedDateTime;
+import java.time.Instant;
 import java.util.Collection;
+import java.util.Date;
 import java.util.UUID;
 
 @Data
@@ -26,10 +26,11 @@ public class Player {
     private String lastName;
 
     @Column(name = "nickname")
-    private String nickName;
+    private String nickname;
 
     @Column(name = "birthday", columnDefinition = "DATE")
-    private ZonedDateTime birthday;
+    @Temporal(TemporalType.DATE)
+    private Date birthday;
 
     @Email
     private String email;
@@ -39,8 +40,9 @@ public class Player {
 
     @Column(name = "created_at")
     @CreatedDate
-    private ZonedDateTime createdAt;
+    private Instant createdAt;
 
     @Column(name = "deleted_at")
-    private ZonedDateTime deletedAt;
+    private Instant deletedAt;
+
 }

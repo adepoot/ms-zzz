@@ -6,31 +6,35 @@ import io.swagger.annotations.ApiModel;
 import lombok.Builder;
 import lombok.Value;
 
-import java.time.ZonedDateTime;
+import java.util.Date;
 import java.util.UUID;
 
 @Value
 @Builder
 @ApiModel("Player")
-public final class PlayerResponse {
+public class PlayerResponse {
 
     @JsonProperty("id")
-    private UUID id;
+    UUID id;
 
     @JsonProperty("first_name")
-    private String firstName;
+    String firstName;
 
     @JsonProperty("last_name")
-    private String lastName;
+    String lastName;
+
+    @JsonProperty("nickname")
+    String nickname;
 
     @JsonProperty("birthday")
-    private ZonedDateTime birthday;
+    Date birthday;
 
     public static PlayerResponse from(final Player player) {
         return builder()
                 .id(player.getId())
                 .firstName(player.getFirstName())
                 .lastName(player.getLastName())
+                .nickname(player.getNickname())
                 .birthday(player.getBirthday())
                 .build();
     }

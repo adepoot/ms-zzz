@@ -7,4 +7,4 @@ CREATE TABLE players (
     birthday    DATE,
     created_at  TIMESTAMP WITH TIME ZONE NOT NULL   DEFAULT (now() at time zone 'utc'),
     deleted_at  TIMESTAMP WITH TIME ZONE
-)
+);

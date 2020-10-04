@@ -13,7 +13,3 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: none
-
-java:
-  runtime:
-    version: 11

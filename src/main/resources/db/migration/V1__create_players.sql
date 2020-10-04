@@ -5,6 +5,7 @@ CREATE TABLE players (
     first_name  VARCHAR     NOT NULL,
     last_name   VARCHAR     NOT NULL,
     nickname    VARCHAR,
+    number      INT,
     birthday    DATE,
     email       VARCHAR,
     created_at  TIMESTAMP WITH TIME ZONE NOT NULL   DEFAULT (now() at time zone 'utc'),

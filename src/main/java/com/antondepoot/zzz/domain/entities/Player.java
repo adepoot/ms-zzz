@@ -28,6 +28,9 @@ public class Player {
     @Column(name = "nickname")
     private String nickname;
 
+    @Column(name = "number")
+    private int number;
+
     @Column(name = "birthday", columnDefinition = "DATE")
     @Temporal(TemporalType.DATE)
     private Date birthday;

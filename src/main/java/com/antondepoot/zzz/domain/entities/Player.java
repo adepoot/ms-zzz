@@ -35,14 +35,17 @@ public class Player {
     @Email
     private String email;
 
-    @OneToMany(mappedBy = "scorer")
-    private Collection<Goal> goals;
-
     @Column(name = "created_at")
     @CreatedDate
     private Instant createdAt;
 
     @Column(name = "deleted_at")
     private Instant deletedAt;
+
+    @OneToMany(mappedBy = "scorer")
+    private Collection<Goal> goals;
+
+    @OneToMany(mappedBy = "assister")
+    private Collection<Goal> assists;
 
 }

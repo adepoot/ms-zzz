@@ -14,14 +14,18 @@ public class Goal {
     private UUID id;
 
     @ManyToOne
-    private Player scorer;
-
-//    @ManyToOne
-//    private Game game;
+    @JoinColumn(name = "game_id")
+    private Game game;
 
     @ManyToOne
+    @JoinColumn(name = "scorer_id")
+    private Player scorer;
+
+    @ManyToOne
+    @JoinColumn(name = "assister_id")
     private Player assister;
 
     @Column(name = "penalty")
     private boolean penalty;
+
 }

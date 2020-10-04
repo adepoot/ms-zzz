@@ -2,7 +2,6 @@ package com.antondepoot.zzz.rest.responses;
 
 import com.antondepoot.zzz.domain.entities.Player;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
 import lombok.Builder;
 import lombok.Value;
 
@@ -11,7 +10,6 @@ import java.util.UUID;
 
 @Value
 @Builder
-@ApiModel("Player")
 public class PlayerResponse {
 
     @JsonProperty("id")

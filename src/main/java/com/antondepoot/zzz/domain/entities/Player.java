@@ -51,4 +51,10 @@ public class Player {
     @OneToMany(mappedBy = "assister")
     private Collection<Goal> assists;
 
+    @OneToMany(mappedBy = "keeper")
+    private Collection<Saves> saves;
+
+    @ManyToMany(mappedBy = "players")
+    private Collection<Game> games;
+
 }

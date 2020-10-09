@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.time.Instant;
+import java.util.Collection;
 import java.util.UUID;
 
 @Data
@@ -31,4 +32,11 @@ public class Game {
     @Column(name = "away_score")
     private int awayScore;
 
+    @ManyToMany
+    @JoinTable(
+            name = "game_player",
+            joinColumns = @JoinColumn(name = "game_id"),
+            inverseJoinColumns = @JoinColumn(name = "player_id")
+    )
+    private Collection<Player> players;
 }

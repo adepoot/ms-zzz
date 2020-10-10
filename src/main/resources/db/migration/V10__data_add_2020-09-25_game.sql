@@ -1,5 +1,5 @@
 INSERT INTO games (date, home_team_id, away_team_id, home_score, away_score)
-SELECT '2020-09-25', t1.id, t2.id, 11, 3
+SELECT '2020-09-25', t1.id, t2.id, 7, 3
 FROM teams t1, teams t2
 WHERE
     t1.name = 'Liquor Pool FC' AND

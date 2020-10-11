@@ -1,0 +1,14 @@
+body {
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.coming-soon {
+    font-size: 30px;
+    text-align: center;
+}

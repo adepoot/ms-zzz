@@ -1,7 +1,10 @@
 package com.antondepoot.zzz.domain.entities;
 
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
@@ -14,6 +17,9 @@ import java.util.UUID;
 @Data
 @Entity
 @Table(name = "players")
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Player {
 
     @Id
@@ -56,5 +62,9 @@ public class Player {
 
     @ManyToMany(mappedBy = "players")
     private Collection<Game> games;
+
+    public String getFullName() {
+        return this.getFirstName() + " " + this.getLastName();
+    }
 
 }

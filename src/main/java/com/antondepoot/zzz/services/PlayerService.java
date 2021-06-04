@@ -6,6 +6,7 @@ import com.antondepoot.zzz.domain.exceptions.PlayerNotFound;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -18,8 +19,13 @@ public class PlayerService {
     }
 
     @Transactional
-    public Player getPlayerInfo(final UUID id) {
-        return this.playerRepository.findByIdAndDeletedAtIsNull(id).orElseThrow(() -> new PlayerNotFound(id));
+    public Player getPlayer(final UUID id) {
+        return this.playerRepository.findById(id).orElseThrow(() -> new PlayerNotFound(id));
+    }
+
+    @Transactional
+    public List<Player> getPlayers() {
+        return this.playerRepository.findAll();
     }
 
 }

@@ -26,6 +26,6 @@ public class Goal {
     private Player assister;
 
     @Column(name = "penalty")
-    private boolean penalty;
+    private Boolean penalty;
 
 }

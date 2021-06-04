@@ -21,7 +21,7 @@ class PlayerResource {
 
     @GetMapping("info/{id}")
     PlayerResponse getPlayerInfo(@PathVariable("id") final UUID id) {
-        return PlayerResponse.from(this.playerService.getPlayerInfo(id));
+        return PlayerResponse.from(this.playerService.getPlayer(id));
     }
 
 }

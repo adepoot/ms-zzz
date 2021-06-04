@@ -2,13 +2,17 @@ package com.antondepoot.zzz.database;
 
 import com.antondepoot.zzz.domain.PlayerRepository;
 import com.antondepoot.zzz.domain.entities.Player;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
 @Repository
 public class DatabasePlayerRepository implements PlayerRepository {
+
+    private static final Sort SORT = Sort.by(Sort.Direction.ASC, "firstName", "lastName");
 
     private final PlayerJpaRepository playerJpaRepository;
 
@@ -17,7 +21,12 @@ public class DatabasePlayerRepository implements PlayerRepository {
     }
 
     @Override
-    public Optional<Player> findByIdAndDeletedAtIsNull(UUID id) {
+    public Optional<Player> findById(UUID id) {
         return this.playerJpaRepository.findByIdAndDeletedAtIsNull(id);
+    }
+
+    @Override
+    public List<Player> findAll() {
+        return this.playerJpaRepository.findPlayersByDeletedAtIsNull(SORT);
     }
 }

@@ -32,7 +32,25 @@ INSERT INTO goals (game_id, scorer_id)
 SELECT game.id, goal.id from games game, players goal
 WHERE
         game.date = '2021-06-18' AND
-        goal.first_name IN ('Waut', 'Waut', 'Waut', 'Kamiel');
+        goal.first_name = 'Kamiel';
+
+INSERT INTO goals (game_id, scorer_id)
+SELECT game.id, goal.id from games game, players goal
+WHERE
+        game.date = '2021-06-18' AND
+        goal.first_name = 'Waut';
+
+INSERT INTO goals (game_id, scorer_id)
+SELECT game.id, goal.id from games game, players goal
+WHERE
+        game.date = '2021-06-18' AND
+        goal.first_name = 'Waut';
+
+INSERT INTO goals (game_id, scorer_id)
+SELECT game.id, goal.id from games game, players goal
+WHERE
+        game.date = '2021-06-18' AND
+        goal.first_name = 'Waut';
 
 INSERT INTO saves (game_id, player_id, count)
 SELECT g.id, p.id, 18 FROM games g, players p

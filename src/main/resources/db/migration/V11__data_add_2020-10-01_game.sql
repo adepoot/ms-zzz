@@ -21,7 +21,7 @@ INSERT INTO goals (game_id, scorer_id, assister_id)
 SELECT g.id, p1.id, p2.id from games g, players p1, players p2
 WHERE
     g.date = '2020-10-01' AND
-    p1.first_name = 'Rémi' AND
+    p1.first_name = 'Waut' AND
     p2.first_name IN ('Thomas', 'Tiebe');
 
 INSERT INTO saves (game_id, player_id, count)

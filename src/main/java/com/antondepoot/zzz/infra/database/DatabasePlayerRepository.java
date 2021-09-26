@@ -1,4 +1,4 @@
-package com.antondepoot.zzz.database;
+package com.antondepoot.zzz.infra.database;
 
 import com.antondepoot.zzz.domain.PlayerRepository;
 import com.antondepoot.zzz.domain.entities.Player;

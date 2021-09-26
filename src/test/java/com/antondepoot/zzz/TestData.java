@@ -6,6 +6,7 @@ import org.apache.commons.lang3.RandomUtils;
 
 import java.sql.Date;
 import java.time.Instant;
+import java.util.Collections;
 import java.util.UUID;
 
 public final class TestData {
@@ -18,6 +19,11 @@ public final class TestData {
                 .nickname(RandomStringUtils.randomAlphabetic(5, 10))
                 .birthday(Date.from(Instant.now()))
                 .number(RandomUtils.nextInt())
+                .createdAt(Instant.now())
+                .goals(Collections.emptyList())
+                .assists(Collections.emptyList())
+                .saves(Collections.emptyList())
+                .games(Collections.emptyList())
                 .build();
     }
 
@@ -29,6 +35,11 @@ public final class TestData {
                 .nickname(RandomStringUtils.randomAlphabetic(5, 10))
                 .birthday(Date.from(Instant.now()))
                 .number(RandomUtils.nextInt())
+                .createdAt(Instant.now())
+                .goals(Collections.emptyList())
+                .assists(Collections.emptyList())
+                .saves(Collections.emptyList())
+                .games(Collections.emptyList())
                 .build();
     }
 }

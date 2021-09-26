@@ -1,4 +1,4 @@
-package com.antondepoot.zzz.rest;
+package com.antondepoot.zzz.web.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

@@ -1,4 +1,4 @@
-package com.antondepoot.zzz.rest.responses;
+package com.antondepoot.zzz.web.responses;
 
 import com.antondepoot.zzz.domain.entities.Player;
 import com.antondepoot.zzz.domain.entities.Saves;

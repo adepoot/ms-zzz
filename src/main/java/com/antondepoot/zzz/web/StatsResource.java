@@ -1,6 +1,6 @@
-package com.antondepoot.zzz.rest;
+package com.antondepoot.zzz.web;
 
-import com.antondepoot.zzz.rest.responses.PlayerStatsResponse;
+import com.antondepoot.zzz.web.responses.PlayerStatsResponse;
 import com.antondepoot.zzz.services.PlayerService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

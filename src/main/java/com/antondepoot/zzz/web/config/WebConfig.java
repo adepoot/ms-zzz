@@ -1,4 +1,4 @@
-package com.antondepoot.zzz.rest;
+package com.antondepoot.zzz.web.config;
 
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;

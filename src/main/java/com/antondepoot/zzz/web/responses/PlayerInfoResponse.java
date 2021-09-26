@@ -1,4 +1,4 @@
-package com.antondepoot.zzz.rest.responses;
+package com.antondepoot.zzz.web.responses;
 
 import com.antondepoot.zzz.domain.entities.Player;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -10,7 +10,7 @@ import java.util.UUID;
 
 @Value
 @Builder
-public class PlayerResponse {
+public class PlayerInfoResponse {
 
     @JsonProperty("id")
     UUID id;
@@ -24,15 +24,23 @@ public class PlayerResponse {
     @JsonProperty("nickname")
     String nickname;
 
+    @JsonProperty("number")
+    int number;
+
+    @JsonProperty("selections")
+    int selections;
+
     @JsonProperty("birthday")
     Date birthday;
 
-    public static PlayerResponse from(final Player player) {
+    public static PlayerInfoResponse from(final Player player) {
         return builder()
                 .id(player.getId())
                 .firstName(player.getFirstName())
                 .lastName(player.getLastName())
                 .nickname(player.getNickname())
+                .number(player.getNumber())
+                .selections(player.getGames().size())
                 .birthday(player.getBirthday())
                 .build();
     }

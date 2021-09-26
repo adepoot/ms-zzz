@@ -1,4 +1,4 @@
-package com.antondepoot.zzz.database;
+package com.antondepoot.zzz.infra.database;
 
 import com.antondepoot.zzz.domain.entities.Player;
 import org.springframework.data.domain.Sort;

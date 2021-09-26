@@ -1,0 +1,16 @@
+spring:
+
+  datasource:
+    url: "jdbc:tc:postgresql:11:///access-control"
+    driver-class-name: "org.testcontainers.jdbc.ContainerDatabaseDriver"
+
+  test:
+    database:
+      replace: none
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      format_sql: true

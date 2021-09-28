@@ -23,7 +23,7 @@ public class PlayerStatsResponse {
     int assists;
 
     @JsonProperty("saves")
-    long saves;
+    int saves;
 
     public static PlayerStatsResponse from(final Player player) {
         return builder()

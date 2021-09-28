@@ -15,7 +15,7 @@ public class PlayerStatsResponse {
     @JsonProperty("id")
     UUID id;
 
-    @JsonProperty("fist_name")
+    @JsonProperty("first_name")
     String firstName;
 
     @JsonProperty("last_name")

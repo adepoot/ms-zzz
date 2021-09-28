@@ -7,7 +7,7 @@ SET name = 'ZVC Runa'
 WHERE t.name = 'Runa';
 
 INSERT INTO teams (name)
-VALUES (' Dnweetjdathetmoeilijkwrdt'),
+VALUES ('Dnweetjdathetmoeilijkwrdt'),
        ('ZVC Leie Shotters'),
        ('De Zweetdieven'),
        ('Cluzona Kluisbergen');

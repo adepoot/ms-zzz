@@ -24,40 +24,47 @@ public class PlayerService {
 
     @Transactional
     public Player getPlayer(final UUID id) {
-        return this.playerRepository.findById(id).orElseThrow(() -> new PlayerNotFound(id));
+        Player player = this.playerRepository.findById(id).orElseThrow(() -> new PlayerNotFound(id));
+
+        filterOnCurrentSeason(player);
+
+        return player;
     }
 
     @Transactional
     public List<Player> getPlayers() {
         List<Player> players = this.playerRepository.findAll();
 
-        players.forEach(player -> {
-            player.setGames(player.getGames().stream()
-                    .filter(
-                            game -> game.getDate().isBefore(CURRENT_SEASON.getEnd()) &&
-                                    game.getDate().isAfter(CURRENT_SEASON.getStart()))
-                    .collect(Collectors.toSet()));
-
-            player.setGoals(player.getGoals().stream()
-                    .filter(
-                            goal -> goal.getGame().getDate().isBefore(CURRENT_SEASON.getEnd()) &&
-                                    goal.getGame().getDate().isAfter(CURRENT_SEASON.getStart()))
-                    .collect(Collectors.toList()));
-
-            player.setAssists(player.getAssists().stream()
-                    .filter(
-                            assist -> assist.getGame().getDate().isBefore(CURRENT_SEASON.getEnd()) &&
-                                    assist.getGame().getDate().isAfter(CURRENT_SEASON.getStart()))
-                    .collect(Collectors.toList()));
-
-            player.setSaves(player.getSaves().stream()
-                    .filter(
-                            save -> save.getGame().getDate().isBefore(CURRENT_SEASON.getEnd()) &&
-                                    save.getGame().getDate().isAfter(CURRENT_SEASON.getStart()))
-                    .collect(Collectors.toList()));
-        });
+        players.forEach(this::filterOnCurrentSeason);
 
         return players;
+    }
+
+    private void filterOnCurrentSeason(Player player) {
+        player.setGames(player.getGames().stream()
+                .filter(
+                        game -> game.getDate().isBefore(CURRENT_SEASON.getEnd()) &&
+                                game.getDate().isAfter(CURRENT_SEASON.getStart()))
+                .collect(Collectors.toSet()));
+
+        player.setGoals(player.getGoals().stream()
+                .filter(
+                        goal -> goal.getGame().getDate().isBefore(CURRENT_SEASON.getEnd()) &&
+                                goal.getGame().getDate().isAfter(CURRENT_SEASON.getStart()))
+                .collect(Collectors.toList()));
+
+        player.setAssists(player.getAssists().stream()
+                .filter(
+                        assist -> assist.getGame().getDate().isBefore(CURRENT_SEASON.getEnd()) &&
+                                assist.getGame().getDate().isAfter(CURRENT_SEASON.getStart()))
+                .collect(Collectors.toList()));
+
+        player.setSaves(player.getSaves().stream()
+                .filter(
+                        save -> save.getGame().getDate().isBefore(CURRENT_SEASON.getEnd()) &&
+                                save.getGame().getDate().isAfter(CURRENT_SEASON.getStart()))
+                .collect(Collectors.toList()));
+
     }
 
 }

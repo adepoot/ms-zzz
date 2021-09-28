@@ -3,6 +3,7 @@ package com.antondepoot.zzz.web;
 import com.antondepoot.zzz.domain.entities.Player;
 import com.antondepoot.zzz.services.PlayerService;
 import com.antondepoot.zzz.web.responses.PlayerInfoResponse;
+import com.antondepoot.zzz.web.responses.PlayerStatsResponse;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,6 +32,11 @@ class PlayerResource {
     @GetMapping("/{id}/info")
     PlayerInfoResponse getPlayerInfo(@PathVariable("id") final UUID id) {
         return PlayerInfoResponse.from(this.playerService.getPlayer(id));
+    }
+
+    @GetMapping("/{id}/stats")
+    PlayerStatsResponse getPlayerStats(@PathVariable("id") final UUID id) {
+        return PlayerStatsResponse.from(this.playerService.getPlayer(id));
     }
 
 }

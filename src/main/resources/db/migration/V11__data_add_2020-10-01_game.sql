@@ -9,7 +9,7 @@ INSERT INTO game_player (game_id, player_id)
 SELECT g.id, p.id FROM games g, players p
 WHERE
     g.date = '2020-10-01' AND
-    p.first_name IN ('Thomas', 'Rémi', 'Guillame', 'Mathijs', 'Waut', 'Auryn', 'Victor', 'Tiebe', 'Anton');
+    p.first_name IN ('Thomas', 'Rémi', 'Guillaume', 'Mathijs', 'Waut', 'Auryn', 'Victor', 'Tiebe', 'Anton');
 
 INSERT INTO goals (game_id, scorer_id)
 SELECT g.id, p.id from games g, players p

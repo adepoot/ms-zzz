@@ -54,7 +54,7 @@ INSERT INTO goals (game_id, scorer_id, assister_id)
 SELECT game.id, goal.id, assist.id from games game,players goal,players assist
 WHERE
         game.date = '2021-09-14' AND
-        goal.first_name = 'Guillame' AND
+        goal.first_name = 'Guillaume' AND
         assist.first_name = 'Maxime';
 
 INSERT INTO goals (game_id, scorer_id, assister_id)

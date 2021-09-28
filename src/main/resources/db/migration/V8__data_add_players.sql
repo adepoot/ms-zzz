@@ -2,7 +2,7 @@ INSERT INTO players (first_name, last_name, number)
 VALUES
 ('Mathijs', 'Delabie', 3),
 ('Auryn', 'Bonte', 4),
-('Guillame', 'Deprez', 6),
+('Guillaume', 'Deprez', 6),
 ('Anton', 'Depoot', 7),
 ('Waut', 'D''hondt', 9),
 ('Rémi', 'Bossard', 10),

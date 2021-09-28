@@ -9,14 +9,14 @@ INSERT INTO game_player (game_id, player_id)
 SELECT g.id, p.id FROM games g, players p
 WHERE
     g.date = '2021-06-10' AND
-    p.first_name IN ('Tiebe', 'Guillame', 'Rémi', 'Waut', 'Auryn', 'Anton', 'Victor');
+    p.first_name IN ('Tiebe', 'Guillaume', 'Rémi', 'Waut', 'Auryn', 'Anton', 'Victor');
 
 INSERT INTO goals (game_id, scorer_id, assister_id)
 SELECT g.id, p1.id, p2.id from games g, players p1, players p2
 WHERE
     g.date = '2021-06-10' AND
     p1.first_name = 'Waut' AND
-    p2.first_name = 'Guillame';
+    p2.first_name = 'Guillaume';
 
 INSERT INTO goals (game_id, scorer_id, assister_id)
 SELECT g.id, p1.id, p2.id from games g, players p1, players p2

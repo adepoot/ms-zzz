@@ -9,7 +9,7 @@ INSERT INTO game_player (game_id, player_id)
 SELECT g.id, p.id FROM games g, players p
 WHERE
     g.date = '2020-10-08' AND
-    p.first_name IN ('Thomas', 'Guillame', 'Mathijs', 'Waut', 'Auryn', 'Anton');
+    p.first_name IN ('Thomas', 'Guillaume', 'Mathijs', 'Waut', 'Auryn', 'Anton');
 
 INSERT INTO goals (game_id, scorer_id, assister_id)
 SELECT g.id, p1.id, p2.id from games g, players p1, players p2
@@ -41,4 +41,4 @@ INSERT INTO saves (game_id, player_id, count)
 SELECT g.id, p.id, 0 FROM games g, players p
 WHERE
     g.date = '2020-10-08' AND
-    p.first_name = 'Guillame';
+    p.first_name = 'Guillaume';

@@ -27,9 +27,6 @@ public class PlayerInfoResponse {
     @JsonProperty("number")
     int number;
 
-    @JsonProperty("selections")
-    int selections;
-
     @JsonProperty("birthday")
     Date birthday;
 
@@ -40,7 +37,6 @@ public class PlayerInfoResponse {
                 .lastName(player.getLastName())
                 .nickname(player.getNickname())
                 .number(player.getNumber())
-                .selections(player.getGames().size())
                 .birthday(player.getBirthday())
                 .build();
     }

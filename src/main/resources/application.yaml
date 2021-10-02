@@ -19,3 +19,4 @@ ms-zzz:
   web:
     allowed-origins:
       - ${ALLOWED_ORIGIN_1}
+      - ${ALLOWED_ORIGIN_2}

@@ -10,7 +10,7 @@ import java.util.UUID;
 
 @Value
 @Builder
-public class PlayerStatsResponse {
+public class StatsResponse {
 
     @JsonProperty("id")
     UUID id;
@@ -33,7 +33,7 @@ public class PlayerStatsResponse {
     @JsonProperty("saves")
     int saves;
 
-    public static PlayerStatsResponse from(final Player player) {
+    public static StatsResponse from(final Player player) {
         return builder()
                 .id(player.getId())
                 .firstName(player.getFirstName())

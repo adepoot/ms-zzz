@@ -1,6 +1,6 @@
 package com.antondepoot.zzz.web;
 
-import com.antondepoot.zzz.web.responses.PlayerStatsResponse;
+import com.antondepoot.zzz.web.responses.StatsResponse;
 import com.antondepoot.zzz.services.PlayerService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,9 +20,9 @@ public class StatsResource {
     }
 
     @GetMapping("players")
-    List<PlayerStatsResponse> getPlayerStatistics() {
+    List<StatsResponse> getPlayerStatistics() {
         return this.playerService.getPlayers().stream()
-                .map(PlayerStatsResponse::from)
+                .map(StatsResponse::from)
                 .collect(Collectors.toUnmodifiableList());
     }
 

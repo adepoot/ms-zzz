@@ -54,6 +54,12 @@ INSERT INTO goals (game_id, scorer_id)
 SELECT game.id, goal.id from games game, players goal
 WHERE
         game.date = '2021-10-19' AND
+        goal.first_name = 'Emiel';
+
+INSERT INTO goals (game_id, scorer_id)
+SELECT game.id, goal.id from games game, players goal
+WHERE
+        game.date = '2021-10-19' AND
         goal.first_name = 'Mathijs';
 
 INSERT INTO goals (game_id, scorer_id)

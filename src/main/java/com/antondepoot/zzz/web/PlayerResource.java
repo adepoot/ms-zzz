@@ -2,9 +2,9 @@ package com.antondepoot.zzz.web;
 
 import com.antondepoot.zzz.domain.entities.Goal;
 import com.antondepoot.zzz.domain.entities.Player;
-import com.antondepoot.zzz.services.GameService;
-import com.antondepoot.zzz.services.GoalService;
+import com.antondepoot.zzz.domain.entities.Saves;
 import com.antondepoot.zzz.services.PlayerService;
+import com.antondepoot.zzz.services.StatisticsService;
 import com.antondepoot.zzz.web.responses.PlayerResponse;
 import com.antondepoot.zzz.web.responses.StatsDetailResponse;
 import com.antondepoot.zzz.web.responses.StatsResponse;
@@ -26,13 +26,11 @@ import static java.util.stream.Collectors.groupingBy;
 class PlayerResource {
 
     private final PlayerService playerService;
-    private final GoalService goalService;
-    private final GameService gameService;
+    private final StatisticsService statisticsService;
 
-    PlayerResource(final PlayerService playerService, final GoalService goalService, final GameService gameService) {
+    PlayerResource(final PlayerService playerService, final StatisticsService statisticsService) {
         this.playerService = playerService;
-        this.goalService = goalService;
-        this.gameService = gameService;
+        this.statisticsService = statisticsService;
     }
 
     @GetMapping
@@ -49,17 +47,17 @@ class PlayerResource {
     @GetMapping("/{id}/stats")
     StatsResponse getPlayerStats(@PathVariable("id") final UUID id) {
         final Player player = this.playerService.getPlayer(id);
-        final int games = this.gameService.getGamesFor(id).size();
-        final int goals = this.goalService.getGoalsFor(id).size();
-        final int assists = this.goalService.getAssistsFor(id).size();
+        final int games = this.statisticsService.getGamesFor(id).size();
+        final int goals = this.statisticsService.getGoalsFor(id).size();
+        final int assists = this.statisticsService.getAssistsFor(id).size();
+        final int saves = this.statisticsService.getSavesFor(id).stream().mapToInt(Saves::getCount).sum();
 
-        // TODO: get saves
-        return new StatsResponse(PlayerResponse.from(player), games, goals, assists, 0);
+        return new StatsResponse(PlayerResponse.from(player), games, goals, assists, saves);
     }
 
     @GetMapping("/{id}/stats/goals")
     List<StatsDetailResponse> getPlayerGoalsDetail(@PathVariable("id") final UUID id) {
-        List<Goal> goals = this.goalService.getGoalsFor(id);
+        List<Goal> goals = this.statisticsService.getGoalsFor(id);
 
         List<StatsDetailResponse> response = new ArrayList<>();
         goals.stream()

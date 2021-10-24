@@ -1,8 +1,8 @@
 package com.antondepoot.zzz.web;
 
-import com.antondepoot.zzz.services.GameService;
-import com.antondepoot.zzz.services.GoalService;
+import com.antondepoot.zzz.domain.entities.Saves;
 import com.antondepoot.zzz.services.PlayerService;
+import com.antondepoot.zzz.services.StatisticsService;
 import com.antondepoot.zzz.web.responses.PlayerResponse;
 import com.antondepoot.zzz.web.responses.StatsResponse;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,25 +17,23 @@ import java.util.stream.Collectors;
 public class StatsResource {
 
     private final PlayerService playerService;
-    private final GoalService goalService;
-    private final GameService gameService;
+    private final StatisticsService statisticsService;
 
-    public StatsResource(final PlayerService playerService, final GoalService goalService, final GameService gameService) {
+    public StatsResource(final PlayerService playerService, final StatisticsService statisticsService) {
         this.playerService = playerService;
-        this.goalService = goalService;
-        this.gameService = gameService;
+        this.statisticsService = statisticsService;
     }
 
     @GetMapping("players")
     List<StatsResponse> getPlayerStatistics() {
         return this.playerService.getPlayers().stream()
                 .map(player -> {
-                    final int games = this.gameService.getGamesFor(player.getId()).size();
-                    final int goals = this.goalService.getGoalsFor(player.getId()).size();
-                    final int assists = this.goalService.getAssistsFor(player.getId()).size();
+                    final int games = this.statisticsService.getGamesFor(player.getId()).size();
+                    final int goals = this.statisticsService.getGoalsFor(player.getId()).size();
+                    final int assists = this.statisticsService.getAssistsFor(player.getId()).size();
+                    final int saves = this.statisticsService.getSavesFor(player.getId()).stream().mapToInt(Saves::getCount).sum();
 
-                    // TODO: get saves
-                    return new StatsResponse(PlayerResponse.from(player), games, goals, assists, 0);
+                    return new StatsResponse(PlayerResponse.from(player), games, goals, assists, saves);
                 })
                 .collect(Collectors.toUnmodifiableList());
     }

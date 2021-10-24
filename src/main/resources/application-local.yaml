@@ -7,5 +7,3 @@ spring:
 ms-zzz:
   web:
     allowed-origins:
-      - "http://localhost:4200"
-      - "http://localhost:8000"

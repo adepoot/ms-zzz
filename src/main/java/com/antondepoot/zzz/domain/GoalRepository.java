@@ -10,6 +10,8 @@ import java.util.UUID;
 @Repository
 public interface GoalRepository {
 
-    List<Goal> findAllByPlayerId(final UUID id, final Season season);
+    List<Goal> findAllGoalsForPlayer(final UUID id, final Season season);
+
+    List<Goal> findAllAssistsForPlayer(final UUID id, final Season season);
 
 }

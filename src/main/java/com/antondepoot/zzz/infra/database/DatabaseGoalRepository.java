@@ -21,8 +21,14 @@ public class DatabaseGoalRepository implements GoalRepository {
     }
 
     @Override
-    public List<Goal> findAllByPlayerId(final UUID id, final Season season) {
+    public List<Goal> findAllGoalsForPlayer(final UUID id, final Season season) {
         return this.repository.findAllByScorerIdAndGame_Date_AfterAndGame_Date_Before(
+                id, season.getStart(), season.getEnd(), SORT);
+    }
+
+    @Override
+    public List<Goal> findAllAssistsForPlayer(UUID id, Season season) {
+        return this.repository.findAllByAssisterIdAndGame_Date_AfterAndGame_Date_Before(
                 id, season.getStart(), season.getEnd(), SORT);
     }
 }

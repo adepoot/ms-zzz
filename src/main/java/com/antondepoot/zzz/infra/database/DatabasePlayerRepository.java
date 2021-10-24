@@ -21,7 +21,7 @@ public class DatabasePlayerRepository implements PlayerRepository {
     }
 
     @Override
-    public Optional<Player> findById(UUID id) {
+    public Optional<Player> findById(final UUID id) {
         return this.playerJpaRepository.findByIdAndDeletedAtIsNull(id);
     }
 
@@ -29,4 +29,5 @@ public class DatabasePlayerRepository implements PlayerRepository {
     public List<Player> findAll() {
         return this.playerJpaRepository.findPlayersByDeletedAtIsNull(SORT);
     }
+
 }

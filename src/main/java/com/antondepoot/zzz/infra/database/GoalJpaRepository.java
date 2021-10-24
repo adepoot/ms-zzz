@@ -13,6 +13,9 @@ import java.util.UUID;
 public interface GoalJpaRepository extends JpaRepository<Goal, UUID> {
 
     List<Goal> findAllByScorerIdAndGame_Date_AfterAndGame_Date_Before(
-            final UUID uuid, final Instant start, final Instant end, final Sort sort);
+            final UUID id, final Instant start, final Instant end, final Sort sort);
+
+    List<Goal> findAllByAssisterIdAndGame_Date_AfterAndGame_Date_Before(
+            final UUID id, final Instant start, final Instant end, final Sort sort);
 
 }

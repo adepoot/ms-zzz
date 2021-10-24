@@ -13,4 +13,5 @@ public interface PlayerRepository {
     Optional<Player> findById(final UUID id);
 
     List<Player> findAll();
+
 }

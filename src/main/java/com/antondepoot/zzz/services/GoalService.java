@@ -21,8 +21,13 @@ public class GoalService {
     }
 
     @Transactional
-    public List<Goal> getGoalDetailsFor(final UUID playerId) {
-        return this.goalRepository.findAllByPlayerId(playerId, CURRENT_SEASON);
+    public List<Goal> getGoalsFor(final UUID playerId) {
+        return this.goalRepository.findAllGoalsForPlayer(playerId, CURRENT_SEASON);
+    }
+
+    @Transactional
+    public List<Goal> getAssistsFor(final UUID playerId) {
+        return this.goalRepository.findAllAssistsForPlayer(playerId, CURRENT_SEASON);
     }
 
 }

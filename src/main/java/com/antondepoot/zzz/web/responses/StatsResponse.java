@@ -1,13 +1,11 @@
 package com.antondepoot.zzz.web.responses;
 
-import com.antondepoot.zzz.domain.entities.Player;
-import com.antondepoot.zzz.domain.entities.Saves;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Builder;
+import lombok.AllArgsConstructor;
 import lombok.Value;
 
 @Value
-@Builder
+@AllArgsConstructor
 public class StatsResponse {
 
     @JsonProperty("player")
@@ -25,13 +23,4 @@ public class StatsResponse {
     @JsonProperty("saves")
     int saves;
 
-    public static StatsResponse from(final Player player) {
-        return builder()
-                .player(PlayerResponse.from(player))
-                .selections(player.getGames().size())
-                .goals(player.getGoals().size())
-                .assists(player.getAssists().size())
-                .saves(player.getSaves().stream().mapToInt(Saves::getCount).sum())
-                .build();
-    }
 }

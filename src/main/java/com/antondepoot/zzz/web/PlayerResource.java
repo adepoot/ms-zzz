@@ -45,12 +45,17 @@ class PlayerResource {
 
     @GetMapping("/{id}/stats")
     StatsResponse getPlayerStats(@PathVariable("id") final UUID id) {
-        return StatsResponse.from(this.playerService.getPlayer(id));
+        final Player player = this.playerService.getPlayer(id);
+        final int goals = this.goalService.getGoalsFor(id).size();
+        final int assists = this.goalService.getAssistsFor(id).size();
+
+        // TODO: get selections and saves
+        return new StatsResponse(PlayerResponse.from(player), 0, goals, assists, 0);
     }
 
     @GetMapping("/{id}/stats/goals")
     List<StatsDetailResponse> getPlayerGoalsDetail(@PathVariable("id") final UUID id) {
-        List<Goal> goals = this.goalService.getGoalDetailsFor(id);
+        List<Goal> goals = this.goalService.getGoalsFor(id);
 
         List<StatsDetailResponse> response = new ArrayList<>();
         goals.stream()

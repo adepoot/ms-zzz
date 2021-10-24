@@ -8,20 +8,13 @@ import lombok.Value;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 @Value
 @Builder
 public class StatsDetailResponse {
 
-    @JsonProperty("id")
-    UUID id;
-
-    @JsonProperty("first_name")
-    String firstName;
-
-    @JsonProperty("last_name")
-    String lastName;
+    @JsonProperty("player")
+    PlayerResponse player;
 
     @JsonProperty("amount")
     int amount;
@@ -38,9 +31,7 @@ public class StatsDetailResponse {
 
     private static StatsDetailResponse from(final Player player, final List<Goal> goals) {
         return StatsDetailResponse.builder()
-                .id(player.getId())
-                .firstName(player.getFirstName())
-                .lastName(player.getLastName())
+                .player(PlayerResponse.from(player))
                 .amount(goals.size())
                 .build();
     }

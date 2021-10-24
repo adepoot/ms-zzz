@@ -4,7 +4,7 @@ import com.antondepoot.zzz.domain.entities.Goal;
 import com.antondepoot.zzz.domain.entities.Player;
 import com.antondepoot.zzz.services.GoalService;
 import com.antondepoot.zzz.services.PlayerService;
-import com.antondepoot.zzz.web.responses.PlayerInfoResponse;
+import com.antondepoot.zzz.web.responses.PlayerResponse;
 import com.antondepoot.zzz.web.responses.StatsDetailResponse;
 import com.antondepoot.zzz.web.responses.StatsResponse;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,14 +33,14 @@ class PlayerResource {
     }
 
     @GetMapping
-    List<PlayerInfoResponse> getPlayers() {
+    List<PlayerResponse> getPlayers() {
         List<Player> players = this.playerService.getPlayers();
-        return players.stream().map(PlayerInfoResponse::from).collect(Collectors.toList());
+        return players.stream().map(PlayerResponse::from).collect(Collectors.toList());
     }
 
     @GetMapping("/{id}/info")
-    PlayerInfoResponse getPlayerInfo(@PathVariable("id") final UUID id) {
-        return PlayerInfoResponse.from(this.playerService.getPlayer(id));
+    PlayerResponse getPlayerInfo(@PathVariable("id") final UUID id) {
+        return PlayerResponse.from(this.playerService.getPlayer(id));
     }
 
     @GetMapping("/{id}/stats")

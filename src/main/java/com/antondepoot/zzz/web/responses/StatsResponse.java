@@ -6,20 +6,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.Value;
 
-import java.util.UUID;
-
 @Value
 @Builder
 public class StatsResponse {
 
-    @JsonProperty("id")
-    UUID id;
-
-    @JsonProperty("first_name")
-    String firstName;
-
-    @JsonProperty("last_name")
-    String lastName;
+    @JsonProperty("player")
+    PlayerResponse player;
 
     @JsonProperty("selections")
     int selections;
@@ -35,9 +27,7 @@ public class StatsResponse {
 
     public static StatsResponse from(final Player player) {
         return builder()
-                .id(player.getId())
-                .firstName(player.getFirstName())
-                .lastName(player.getLastName())
+                .player(PlayerResponse.from(player))
                 .selections(player.getGames().size())
                 .goals(player.getGoals().size())
                 .assists(player.getAssists().size())

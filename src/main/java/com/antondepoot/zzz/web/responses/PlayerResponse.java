@@ -5,12 +5,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.Value;
 
-import java.util.Date;
 import java.util.UUID;
 
 @Value
 @Builder
-public class PlayerInfoResponse {
+public class PlayerResponse {
 
     @JsonProperty("id")
     UUID id;
@@ -27,17 +26,13 @@ public class PlayerInfoResponse {
     @JsonProperty("number")
     int number;
 
-    @JsonProperty("birthday")
-    Date birthday;
-
-    public static PlayerInfoResponse from(final Player player) {
+    public static PlayerResponse from(final Player player) {
         return builder()
                 .id(player.getId())
                 .firstName(player.getFirstName())
                 .lastName(player.getLastName())
                 .nickname(player.getNickname())
                 .number(player.getNumber())
-                .birthday(player.getBirthday())
                 .build();
     }
 }

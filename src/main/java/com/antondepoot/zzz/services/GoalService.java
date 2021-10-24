@@ -16,7 +16,7 @@ public class GoalService {
 
     private final GoalRepository goalRepository;
 
-    public GoalService(GoalRepository goalRepository) {
+    public GoalService(final GoalRepository goalRepository) {
         this.goalRepository = goalRepository;
     }
 

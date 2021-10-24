@@ -14,7 +14,7 @@ public class PlayerService {
 
     private final PlayerRepository playerRepository;
 
-    public PlayerService(PlayerRepository playerRepository) {
+    public PlayerService(final PlayerRepository playerRepository) {
         this.playerRepository = playerRepository;
     }
 

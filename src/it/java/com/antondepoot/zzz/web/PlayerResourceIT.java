@@ -1,6 +1,7 @@
 package com.antondepoot.zzz.web;
 
 import com.antondepoot.zzz.domain.exceptions.PlayerNotFound;
+import com.antondepoot.zzz.services.GameService;
 import com.antondepoot.zzz.services.GoalService;
 import com.antondepoot.zzz.services.PlayerService;
 import org.junit.jupiter.api.Test;
@@ -26,6 +27,9 @@ class PlayerResourceIT {
 
     @MockBean
     private GoalService goalService;
+
+    @MockBean
+    private GameService gameService;
 
     @Autowired
     private MockMvc mockMvc;

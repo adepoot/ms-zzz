@@ -16,6 +16,8 @@ server:
     context-path: /api
 
 ms-zzz:
+  app:
+    season: "season_2021_2022"
   web:
     allowed-origins:
       - ${ALLOWED_ORIGIN_1}

@@ -12,22 +12,22 @@ import java.util.UUID;
 @Service
 public class GoalService {
 
-    private static final Season CURRENT_SEASON = Season.SEASON_2021_2022;
-
+    private final Season currentSeason;
     private final GoalRepository goalRepository;
 
-    public GoalService(final GoalRepository goalRepository) {
+    public GoalService(final AppProperties appProperties, final GoalRepository goalRepository) {
+        this.currentSeason = appProperties.getSeason();
         this.goalRepository = goalRepository;
     }
 
     @Transactional
     public List<Goal> getGoalsFor(final UUID playerId) {
-        return this.goalRepository.findAllGoalsForPlayer(playerId, CURRENT_SEASON);
+        return this.goalRepository.findAllGoalsForPlayer(playerId, currentSeason);
     }
 
     @Transactional
     public List<Goal> getAssistsFor(final UUID playerId) {
-        return this.goalRepository.findAllAssistsForPlayer(playerId, CURRENT_SEASON);
+        return this.goalRepository.findAllAssistsForPlayer(playerId, currentSeason);
     }
 
 }

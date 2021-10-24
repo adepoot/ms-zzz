@@ -11,16 +11,16 @@ import java.util.UUID;
 @Service
 public class GameService {
 
-    private static final Season CURRENT_SEASON = Season.SEASON_2021_2022;
-
+    private final Season currentSeason;
     private final GameRepository gameRepository;
 
-    public GameService(final GameRepository gameRepository) {
+    public GameService(final AppProperties appProperties, final GameRepository gameRepository) {
+        currentSeason = appProperties.getSeason();
         this.gameRepository = gameRepository;
     }
 
     public List<Game> getGamesFor(final UUID playerId) {
-        return this.gameRepository.findAllGamesForPlayer(playerId, CURRENT_SEASON);
+        return this.gameRepository.findAllGamesForPlayer(playerId, currentSeason);
     }
 
 }

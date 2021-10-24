@@ -67,4 +67,16 @@ class PlayerResource {
         return response;
     }
 
+    @GetMapping("/{id}/stats/assists")
+    List<StatsDetailResponse> getPlayerAssistsDetail(@PathVariable("id") final UUID id) {
+        List<Goal> goals = this.statisticsService.getAssistsFor(id);
+
+        List<StatsDetailResponse> response = new ArrayList<>();
+        goals.stream()
+                .collect(groupingBy(goal -> Optional.ofNullable(goal.getScorer())))
+                .forEach((player, goalz) -> response.add(StatsDetailResponse.from(player, goalz)));
+
+        return response;
+    }
+
 }

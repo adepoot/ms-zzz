@@ -5,9 +5,17 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.Value;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+
 @Value
 @Builder
 public class GameResponse {
+
+    private static final SimpleDateFormat DATE_FORMATTER = new SimpleDateFormat("dd-MM-yyyy");
+
+    @JsonProperty("date")
+    String date;
 
     @JsonProperty("home_team")
     String homeTeam;
@@ -23,6 +31,7 @@ public class GameResponse {
 
     public static GameResponse from(final Game game) {
         return GameResponse.builder()
+                .date(DATE_FORMATTER.format(Date.from(game.getDate())))
                 .homeTeam(game.getHomeTeam().getName())
                 .awayTeam(game.getAwayTeam().getName())
                 .homeScore(game.getHomeScore())

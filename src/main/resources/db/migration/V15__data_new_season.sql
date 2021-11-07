@@ -8,7 +8,6 @@ WHERE t.name = 'Runa';
 
 INSERT INTO teams (name)
 VALUES ('Dnweetjdathetmoeilijkwrdt'),
-       ('ZVC Leie Shotters'),
        ('De Zweetdieven'),
        ('Cluzona Kluisbergen');
 

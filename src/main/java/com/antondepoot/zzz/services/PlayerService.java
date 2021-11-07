@@ -2,6 +2,7 @@ package com.antondepoot.zzz.services;
 
 import com.antondepoot.zzz.domain.PlayerRepository;
 import com.antondepoot.zzz.domain.entities.Player;
+import com.antondepoot.zzz.domain.entities.Season;
 import com.antondepoot.zzz.domain.exceptions.PlayerNotFound;
 import org.springframework.stereotype.Service;
 
@@ -12,9 +13,11 @@ import java.util.UUID;
 @Service
 public class PlayerService {
 
+    private final Season currentSeason;
     private final PlayerRepository playerRepository;
 
-    public PlayerService(final PlayerRepository playerRepository) {
+    public PlayerService(final AppProperties appProperties, final PlayerRepository playerRepository) {
+        this.currentSeason = appProperties.getSeason();
         this.playerRepository = playerRepository;
     }
 
@@ -25,7 +28,7 @@ public class PlayerService {
 
     @Transactional
     public List<Player> getPlayers() {
-        return this.playerRepository.findAll();
+        return this.playerRepository.findAll(currentSeason);
     }
 
 }

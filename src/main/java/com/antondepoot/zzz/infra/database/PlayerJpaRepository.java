@@ -5,6 +5,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -14,6 +15,7 @@ public interface PlayerJpaRepository extends JpaRepository<Player, UUID> {
 
     Optional<Player> findByIdAndDeletedAtIsNull(final UUID id);
 
-    List<Player> findPlayersByDeletedAtIsNull(final Sort sort);
+    List<Player> findDistinctPlayersByDeletedAtIsNullAndGames_DateAfterAndGames_DateBefore(
+            final Instant start, final Instant end, final Sort sort);
 
 }

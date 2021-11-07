@@ -2,6 +2,7 @@ package com.antondepoot.zzz.infra.database;
 
 import com.antondepoot.zzz.domain.PlayerRepository;
 import com.antondepoot.zzz.domain.entities.Player;
+import com.antondepoot.zzz.domain.entities.Season;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
 
@@ -26,8 +27,9 @@ public class DatabasePlayerRepository implements PlayerRepository {
     }
 
     @Override
-    public List<Player> findAll() {
-        return this.playerJpaRepository.findPlayersByDeletedAtIsNull(SORT);
+    public List<Player> findAll(final Season season) {
+        return this.playerJpaRepository
+                .findDistinctPlayersByDeletedAtIsNullAndGames_DateAfterAndGames_DateBefore(season.getStart(), season.getEnd(), SORT);
     }
 
 }

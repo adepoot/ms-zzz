@@ -1,6 +1,7 @@
 package com.antondepoot.zzz.domain;
 
 import com.antondepoot.zzz.domain.entities.Player;
+import com.antondepoot.zzz.domain.entities.Season;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -12,6 +13,6 @@ public interface PlayerRepository {
 
     Optional<Player> findById(final UUID id);
 
-    List<Player> findAll();
+    List<Player> findAll(final Season season);
 
 }

@@ -14,14 +14,16 @@ import static com.antondepoot.zzz.TestData.aPlayer;
 import static com.antondepoot.zzz.TestData.aPlayerWithId;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 class PlayerServiceTest {
     private static final UUID ID = UUID.randomUUID();
 
+    private final AppProperties appProperties = new AppProperties();
     private final PlayerRepository playerRepository = mock(PlayerRepository.class);
-    private final PlayerService playerService = new PlayerService(playerRepository);
+    private final PlayerService playerService = new PlayerService(appProperties, playerRepository);
 
     @Test
     void returns_player_when_found() {
@@ -47,7 +49,7 @@ class PlayerServiceTest {
     @Test
     void returns_all_players() {
         final List<Player> expected = Arrays.asList(aPlayer(), aPlayer(), aPlayer());
-        when(this.playerRepository.findAll()).thenReturn(
+        when(this.playerRepository.findAll(any())).thenReturn(
                 expected
         );
 

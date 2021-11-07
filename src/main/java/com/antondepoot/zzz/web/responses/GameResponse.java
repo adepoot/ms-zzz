@@ -7,12 +7,16 @@ import lombok.Value;
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;
+import java.util.UUID;
 
 @Value
 @Builder
 public class GameResponse {
 
     private static final SimpleDateFormat DATE_FORMATTER = new SimpleDateFormat("dd-MM-yyyy");
+
+    @JsonProperty("id")
+    UUID id;
 
     @JsonProperty("date")
     String date;
@@ -31,6 +35,7 @@ public class GameResponse {
 
     public static GameResponse from(final Game game) {
         return GameResponse.builder()
+                .id(game.getId())
                 .date(DATE_FORMATTER.format(Date.from(game.getDate())))
                 .homeTeam(game.getHomeTeam().getName())
                 .awayTeam(game.getAwayTeam().getName())

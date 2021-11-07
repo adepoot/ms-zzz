@@ -29,7 +29,7 @@ public class DatabasePlayerRepository implements PlayerRepository {
     @Override
     public List<Player> findAll(final Season season) {
         return this.playerJpaRepository
-                .findDistinctPlayersByDeletedAtIsNullAndGames_DateAfterAndGames_DateBefore(season.getStart(), season.getEnd(), SORT);
+                .findDistinctPlayersByDeletedAtIsNullAndGamesDate_AfterAndGamesDate_Before(season.getStart(), season.getEnd(), SORT);
     }
 
 }

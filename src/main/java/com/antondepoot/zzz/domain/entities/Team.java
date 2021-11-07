@@ -1,11 +1,14 @@
 package com.antondepoot.zzz.domain.entities;
 
+import lombok.Getter;
+
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.UUID;
 
 @Entity
 @Table(name = "teams")
+@Getter
 public class Team {
 
     @Id

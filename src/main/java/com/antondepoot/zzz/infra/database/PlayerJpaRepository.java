@@ -15,7 +15,7 @@ public interface PlayerJpaRepository extends JpaRepository<Player, UUID> {
 
     Optional<Player> findByIdAndDeletedAtIsNull(final UUID id);
 
-    List<Player> findDistinctPlayersByDeletedAtIsNullAndGames_DateAfterAndGames_DateBefore(
+    List<Player> findDistinctPlayersByDeletedAtIsNullAndGamesDate_AfterAndGamesDate_Before(
             final Instant start, final Instant end, final Sort sort);
 
 }

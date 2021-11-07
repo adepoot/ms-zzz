@@ -21,6 +21,11 @@ public class DatabaseGameRepository implements GameRepository {
     }
 
     @Override
+    public List<Game> findAll(Season season) {
+        return repository.findGamesByDate_AfterAndDate_Before(season.getStart(), season.getEnd(), SORT);
+    }
+
+    @Override
     public List<Game> findAllGamesForPlayer(UUID id, Season season) {
         return this.repository.findGamesByPlayers_IdAndDate_AfterAndDate_Before(
                 id, season.getStart(), season.getEnd(), SORT);

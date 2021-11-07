@@ -12,6 +12,8 @@ import java.util.UUID;
 @Repository
 public interface GameJpaRepository extends JpaRepository<Game, UUID> {
 
+    List<Game> findGamesByDate_AfterAndDate_Before(final Instant start, final Instant end, final Sort sort);
+
     List<Game> findGamesByPlayers_IdAndDate_AfterAndDate_Before(
             final UUID id, final Instant start, final Instant end, final Sort sort);
 

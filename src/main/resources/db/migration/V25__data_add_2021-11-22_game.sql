@@ -1,7 +1,3 @@
-INSERT INTO players (first_name, last_name, number)
-VALUES
-    ('Benhur', 'Aliev', 97);
-
 INSERT INTO games (date, home_team_id, away_team_id, home_score, away_score)
 SELECT '2021-11-22', t1.id, t2.id, 6, 6
 FROM teams t1, teams t2

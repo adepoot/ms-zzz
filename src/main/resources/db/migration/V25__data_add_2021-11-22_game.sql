@@ -1,5 +1,5 @@
 INSERT INTO games (date, home_team_id, away_team_id, home_score, away_score)
-SELECT '2021-11-22', t1.id, t2.id, 6, 6
+SELECT '2021-11-22', t1.id, t2.id, 4, 7
 FROM teams t1, teams t2
 WHERE
     t1.name = 'ZVC Leie Shotters' AND

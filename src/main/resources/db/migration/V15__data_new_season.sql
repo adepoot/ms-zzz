@@ -14,6 +14,7 @@ VALUES ('Dnweetjdathetmoeilijkwrdt'),
 INSERT INTO players (first_name, last_name, number)
 VALUES ('Maxime', 'De Leyn', 95),
        ('Emiel', 'Deprez', 69),
-       ('Behnur', 'Aliev', 97);
+       ('Behnur', 'Aliev', 97),
+       ('Ruben', '', 99);
 
 

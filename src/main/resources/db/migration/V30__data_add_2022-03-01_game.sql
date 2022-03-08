@@ -1,5 +1,5 @@
 INSERT INTO games (date, home_team_id, away_team_id, home_score, away_score)
-SELECT '2022-03-01', t1.id, t2.id, 6, 8
+SELECT '2022-03-01', t1.id, t2.id, 10, 13
 FROM teams t1, teams t2
 WHERE
     t1.name = 'De Zwarte Zeverzwijnen' AND

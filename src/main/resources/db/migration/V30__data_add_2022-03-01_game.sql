@@ -9,7 +9,7 @@ INSERT INTO game_player (game_id, player_id)
 SELECT game.id, p.id FROM games game, players p
 WHERE
     game.date = '2022-03-01' AND
-    p.first_name IN ('Ruben', 'Guillaume', 'Auryn', 'Anton', 'Victor', 'Maxime');
+    p.first_name IN ('Ruben', 'Guillaume', 'Auryn', 'Anton', 'Victor', 'Maxime', 'Mathijs');
 
 INSERT INTO goals (game_id, scorer_id, assister_id)
 SELECT game.id, goal.id, assist.id from games game,players goal,players assist

@@ -7,7 +7,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.5.RELEASE</version>
+        <version>2.7.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -21,8 +21,8 @@
         <java.version>11</java.version>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
-        <postgresql.version>42.2.12.jre6</postgresql.version>
-        <testcontainers.version>1.16.0</testcontainers.version>
+        <postgresql.version>42.3.4</postgresql.version>
+        <testcontainers.version>1.17.1</testcontainers.version>
         <integration-tests.sources>${project.basedir}/src/it/java</integration-tests.sources>
         <integration-tests.resources>${project.basedir}/src/it/resources</integration-tests.resources>
     </properties>
@@ -69,6 +69,7 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
+            <version>${postgresql.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>

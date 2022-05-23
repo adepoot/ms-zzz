@@ -3,8 +3,8 @@ SET name = 'Excelsior Qastan'
 WHERE t.name = 'Excelsior FIT Group';
 
 UPDATE teams t
-SET name = 'ZVC Runa'
-WHERE t.name = 'Runa';
+SET name = 'Runa'
+WHERE t.name = 'ZVC Runa';
 
 INSERT INTO teams (name)
 VALUES ('Dnweetjdathetmoeilijkwrdt'),

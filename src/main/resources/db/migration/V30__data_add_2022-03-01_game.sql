@@ -3,7 +3,7 @@ SELECT '2022-03-01', t1.id, t2.id, 10, 13
 FROM teams t1, teams t2
 WHERE
     t1.name = 'De Zwarte Zeverzwijnen' AND
-    t2.name = 'ZVC Runa';
+    t2.name = 'Runa';
 
 INSERT INTO game_player (game_id, player_id)
 SELECT game.id, p.id FROM games game, players p

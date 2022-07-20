@@ -21,7 +21,8 @@
         <java.version>11</java.version>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
-        <postgresql.version>42.3.4</postgresql.version>
+        <postgresql.version>42.3.6</postgresql.version>
+        <jsoup.version>1.15.2</jsoup.version>
         <testcontainers.version>1.17.1</testcontainers.version>
         <integration-tests.sources>${project.basedir}/src/it/java</integration-tests.sources>
         <integration-tests.resources>${project.basedir}/src/it/resources</integration-tests.resources>
@@ -74,6 +75,11 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>${jsoup.version}</version>
         </dependency>
 
         <!-- Test Dependencies -->

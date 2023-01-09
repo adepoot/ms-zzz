@@ -2,7 +2,7 @@ INSERT INTO games (date, home_team_id, away_team_id, home_score, away_score)
 SELECT '2022-11-21', t1.id, t2.id, 7, 1
 FROM teams t1, teams t2
 WHERE
-    t1.name = 'Excelsior Qastan' AND
+    t1.name = 'Excelsior Qastan-Neerhof' AND
     t2.name = 'De Zwarte Zeverzwijnen';
 
 INSERT INTO game_player (game_id, player_id)

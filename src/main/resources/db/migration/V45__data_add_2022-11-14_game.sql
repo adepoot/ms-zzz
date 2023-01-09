@@ -36,4 +36,3 @@ SELECT g.id, p.id, 23 FROM games g, players p
 WHERE
         g.date = '2022-11-14' AND
         p.first_name = 'Victor';
-

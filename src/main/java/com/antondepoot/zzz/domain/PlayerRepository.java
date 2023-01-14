@@ -15,4 +15,7 @@ public interface PlayerRepository {
 
     List<Player> findAll(final Season season);
 
+    // TODO: use playerRepo instead of goalRepo
+//    List<Goal> findGoalsFor(final UUID playerId, final Season season);
+
 }

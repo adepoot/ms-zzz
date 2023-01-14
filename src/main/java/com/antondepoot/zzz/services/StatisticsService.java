@@ -39,6 +39,7 @@ public class StatisticsService {
 
     @Transactional
     public List<Goal> getGoalsFor(final UUID playerId) {
+        // TODO: use playerRepository instead of goalRepository
         return this.goalRepository.findAllGoalsForPlayer(playerId, currentSeason);
     }
 

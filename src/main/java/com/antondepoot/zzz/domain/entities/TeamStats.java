@@ -1,4 +1,4 @@
-package com.antondepoot.zzz.domain;
+package com.antondepoot.zzz.domain.entities;
 
 import lombok.Value;
 

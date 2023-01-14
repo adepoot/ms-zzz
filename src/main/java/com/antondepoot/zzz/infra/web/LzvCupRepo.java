@@ -1,18 +1,20 @@
-package com.antondepoot.zzz.services;
+package com.antondepoot.zzz.infra.web;
 
-import com.antondepoot.zzz.domain.TeamStats;
+import com.antondepoot.zzz.domain.StandingRepo;
+import com.antondepoot.zzz.domain.entities.TeamStats;
+import com.antondepoot.zzz.services.AppProperties;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-@Service
-public class LzvCupService {
+@Component
+class LzvCupRepo implements StandingRepo {
 
     private static final int POSITION_COLUMN = 0;
     private static final int NAME_COLUMN = 0;
@@ -28,10 +30,11 @@ public class LzvCupService {
 
     private final String lzvcupBaseUrl;
 
-    public LzvCupService(final AppProperties appProperties) {
+    public LzvCupRepo(final AppProperties appProperties) {
         this.lzvcupBaseUrl = appProperties.getLzvcupBaseUrl();
     }
 
+    @Override
     public List<TeamStats> getCurrentStandings() {
         try {
             Document document = Jsoup.connect(lzvcupBaseUrl + "/results/6/31/2").get();

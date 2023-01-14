@@ -1,6 +1,7 @@
 package com.antondepoot.zzz.web;
 
-import com.antondepoot.zzz.services.LzvCupService;
+import com.antondepoot.zzz.domain.StandingRepo;
+import com.antondepoot.zzz.services.RetrieveStandings;
 import com.antondepoot.zzz.web.responses.TeamStatsResponse;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,15 +14,15 @@ import java.util.stream.Collectors;
 @RequestMapping("/standings")
 class TeamResource {
 
-    private final LzvCupService lzvCupService;
+    private final RetrieveStandings retrieveStandings;
 
-    TeamResource(final LzvCupService lzvCupService) {
-        this.lzvCupService = lzvCupService;
+    TeamResource(final RetrieveStandings retrieveStandings) {
+        this.retrieveStandings = retrieveStandings;
     }
 
     @GetMapping
     List<TeamStatsResponse> getCurrentStandings() {
-        return this.lzvCupService.getCurrentStandings().stream()
+        return this.retrieveStandings.getCurrent().stream()
                 .map(stats -> new TeamStatsResponse(
                         stats.getName(),
                         stats.getPosition(),

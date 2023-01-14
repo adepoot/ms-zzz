@@ -22,8 +22,7 @@ public class GameResource {
     @GetMapping()
     public List<GameResponse> getGames() {
         return this.gameService.getGames().stream()
-                .map(GameResponse::from)
-                .collect(Collectors.toUnmodifiableList());
+                .map(GameResponse::from).toList();
     }
 
 }

@@ -34,8 +34,7 @@ public class StatsResource {
                     final int saves = this.statisticsService.getSavesFor(player.getId()).stream().mapToInt(Saves::getCount).sum();
 
                     return new StatsResponse(PlayerResponse.from(player), games, goals, assists, saves);
-                })
-                .collect(Collectors.toUnmodifiableList());
+                }).toList();
     }
 
 }

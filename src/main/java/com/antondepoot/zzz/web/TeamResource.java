@@ -35,8 +35,7 @@ class TeamResource {
                         stats.getGoalsAgainst(),
                         stats.getGoalsDifference(),
                         stats.getPointsPerMatch()
-                ))
-                .collect(Collectors.toList());
+                )).toList();
     }
 
 }

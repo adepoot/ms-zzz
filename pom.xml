@@ -12,9 +12,9 @@
     </parent>
 
     <groupId>com.antondepoot</groupId>
-    <artifactId>zzz</artifactId>
+    <artifactId>ms-zzz</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>zzz</name>
+    <name>ms-zzz</name>
     <description>API for futsal group ZZZ</description>
 
     <properties>

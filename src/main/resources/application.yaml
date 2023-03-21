@@ -17,7 +17,7 @@ server:
 
 ms-zzz:
   app:
-    season: "season_2021_2022"
+    season: "season_2022_2023"
     lzvcup-base-url: "https://lzvcup.be"
   web:
     allowed-origins:

@@ -32,12 +32,6 @@ WHERE
         goal.first_name = 'Auryn' AND
         assist.first_name = 'Rémi';
 
-INSERT INTO goals (game_id, scorer_id)
-SELECT game.id, goal.id from games game, players goal
-WHERE
-        game.date = '2022-12-19' AND
-        goal.first_name = 'Maxime';
-
 INSERT INTO saves (game_id, player_id, count)
 SELECT g.id, p.id, 26 FROM games g, players p
 WHERE

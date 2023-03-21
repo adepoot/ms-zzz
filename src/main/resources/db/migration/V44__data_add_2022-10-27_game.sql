@@ -16,14 +16,14 @@ SELECT game.id, goal.id, assist.id from games game,players goal,players assist
 WHERE
         game.date = '2022-10-27' AND
         goal.first_name = 'Anton' AND
-        assist.first_name = 'Guillaume';
+        assist.first_name = 'Rémi';
 
 INSERT INTO goals (game_id, scorer_id, assister_id)
 SELECT game.id, goal.id, assist.id from games game,players goal,players assist
 WHERE
         game.date = '2022-10-27' AND
         goal.first_name = 'Rémi' AND
-        assist.first_name = 'Anton';
+        assist.first_name = 'Guillaume';
 
 INSERT INTO goals (game_id, scorer_id)
 SELECT game.id, goal.id from games game, players goal

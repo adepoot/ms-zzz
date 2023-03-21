@@ -1,5 +1,3 @@
-# Set active profile in Heroku:
-# $ heroku config:set SPRING_PROFILES_ACTIVE=prod --app ms-zzz
 spring:
   datasource:
     url: ${JDBC_DATABASE_URL}
@@ -9,5 +7,3 @@ spring:
 ms-zzz:
   web:
     allowed-origins:
-      - ${ALLOWED_ORIGIN_1}
-      - ${ALLOWED_ORIGIN_2}

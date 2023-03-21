@@ -21,5 +21,3 @@ ms-zzz:
     lzvcup-base-url: "https://lzvcup.be"
   web:
     allowed-origins:
-      - ${ALLOWED_ORIGIN_1}
-      - ${ALLOWED_ORIGIN_2}

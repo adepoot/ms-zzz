@@ -9,21 +9,21 @@ INSERT INTO game_player (game_id, player_id)
 SELECT game.id, p.id FROM games game, players p
 WHERE
     game.date = '2022-05-12' AND
-    p.first_name IN ('Victor', 'Benhur', 'Rémi', 'Guillaume', 'Auryn', 'Anton');
+    p.first_name IN ('Victor', 'Behnur', 'Rémi', 'Guillaume', 'Auryn', 'Anton');
 
 INSERT INTO goals (game_id, scorer_id, assister_id)
 SELECT game.id, goal.id, assist.id from games game,players goal,players assist
 WHERE
         game.date = '2022-05-12' AND
         goal.first_name = 'Rémi' AND
-        assist.first_name = 'Benhur';
+        assist.first_name = 'Behnur';
 
 INSERT INTO goals (game_id, scorer_id, assister_id)
 SELECT game.id, goal.id, assist.id from games game,players goal,players assist
 WHERE
         game.date = '2022-05-12' AND
         goal.first_name = 'Rémi' AND
-        assist.first_name = 'Benhur';
+        assist.first_name = 'Behnur';
 
 INSERT INTO goals (game_id, scorer_id, assister_id)
 SELECT game.id, goal.id, assist.id from games game,players goal,players assist
@@ -50,21 +50,21 @@ INSERT INTO goals (game_id, scorer_id, assister_id)
 SELECT game.id, goal.id, assist.id from games game,players goal,players assist
 WHERE
         game.date = '2022-05-12' AND
-        goal.first_name = 'Benhur' AND
+        goal.first_name = 'Behnur' AND
         assist.first_name = 'Rémi';
 
 INSERT INTO goals (game_id, scorer_id, assister_id)
 SELECT game.id, goal.id, assist.id from games game,players goal,players assist
 WHERE
         game.date = '2022-05-12' AND
-        goal.first_name = 'Benhur' AND
+        goal.first_name = 'Behnur' AND
         assist.first_name = 'Rémi';
 
 INSERT INTO goals (game_id, scorer_id, assister_id)
 SELECT game.id, goal.id, assist.id from games game,players goal,players assist
 WHERE
         game.date = '2022-05-12' AND
-        goal.first_name = 'Benhur' AND
+        goal.first_name = 'Behnur' AND
         assist.first_name = 'Rémi';
 
 INSERT INTO goals (game_id, scorer_id)

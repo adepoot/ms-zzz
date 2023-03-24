@@ -1,4 +1,12 @@
-CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+-- Postgres
+--CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
+-- H2
+CREATE ALIAS uuid_generate_v4 AS '
+    UUID ez_uuid() {
+        return UUID.randomUUID();
+    }
+';
 
 CREATE TABLE players (
     id          UUID        NOT NULL                DEFAULT uuid_generate_v4() PRIMARY KEY,
@@ -8,6 +16,9 @@ CREATE TABLE players (
     number      INT,
     birthday    DATE,
     email       VARCHAR,
-    created_at  TIMESTAMP WITH TIME ZONE NOT NULL   DEFAULT (now() at time zone 'utc'),
+    -- Postgres
+    --created_at  TIMESTAMP WITH TIME ZONE NOT NULL   DEFAULT (now() at time zone 'utc'),
+    -- H2
+    created_at  TIMESTAMP WITH TIME ZONE NOT NULL   DEFAULT now(),
     deleted_at  TIMESTAMP WITH TIME ZONE
 );

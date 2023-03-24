@@ -2,12 +2,24 @@ spring:
   application:
     name: zzz
   datasource:
-    driver-class-name: org.postgresql.Driver
+    # H2
+    driver-class-name: org.h2.Driver
+    # Postgres
+    #driver-class-name: org.postgresql.Driver
+
+  h2:
+    console:
+      enabled: false
 
   jpa:
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          time_zone: UTC
+        # H2
+        dialect: org.hibernate.dialect.H2Dialect
+        # Postgres
+        #dialect: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: none
 

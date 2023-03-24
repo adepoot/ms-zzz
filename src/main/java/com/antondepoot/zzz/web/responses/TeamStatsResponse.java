@@ -11,17 +11,17 @@ public class TeamStatsResponse {
     int position;
     int points;
 
-    @JsonProperty("matches_played")
-    int matchesPlayed;
+    @JsonProperty("games_played")
+    int gamesPlayed;
 
-    @JsonProperty("matches_won")
-    int matchesWon;
+    @JsonProperty("games_won")
+    int gamesWon;
 
-    @JsonProperty("matches_drawn")
-    int matchesDrawn;
+    @JsonProperty("games_drawn")
+    int gamesDrawn;
 
-    @JsonProperty("matches_lost")
-    int matchesLost;
+    @JsonProperty("games_lost")
+    int gamesLost;
 
     @JsonProperty("goals_for")
     int goalsFor;
@@ -32,6 +32,7 @@ public class TeamStatsResponse {
     @JsonProperty("goals_difference")
     int goalsDifference;
 
-    @JsonProperty("points_per_match")
-    double pointsPerMatch;
+    @JsonProperty("points_per_game")
+    double pointsPerGame;
+
 }

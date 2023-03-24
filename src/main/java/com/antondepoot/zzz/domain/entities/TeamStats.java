@@ -7,12 +7,12 @@ public class TeamStats {
     String name;
     int position;
     int points;
-    int matchesPlayed;
-    int matchesWon;
-    int matchesDrawn;
-    int matchesLost;
+    int gamesPlayed;
+    int gamesWon;
+    int gamesDrawn;
+    int gamesLost;
     int goalsFor;
     int goalsAgainst;
     int goalsDifference;
-    double pointsPerMatch;
+    double pointsPerGame;
 }

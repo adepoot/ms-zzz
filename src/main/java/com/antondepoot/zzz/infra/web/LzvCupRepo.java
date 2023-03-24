@@ -50,19 +50,19 @@ class LzvCupRepo implements StandingRepo {
                                 String name = rowElements.get(NAME_COLUMN).select("a").text();
                                 int position = Integer.parseInt(rowElements.get(POSITION_COLUMN).select("div > div > div").get(0).text());
                                 int points = Integer.parseInt(rowElements.get(POINTS_COLUMN).text());
-                                int matchesPlayed = Integer.parseInt(rowElements.get(PLAYED_COLUMN).text());
-                                int matchesWon = Integer.parseInt(rowElements.get(WON_COLUMN).text());
-                                int matchesDrawn = Integer.parseInt(rowElements.get(DRAW_COLUMN).text());
-                                int matchesLost = Integer.parseInt(rowElements.get(LOST_COLUMN).text());
+                                int gamesPlayed = Integer.parseInt(rowElements.get(PLAYED_COLUMN).text());
+                                int gamesWon = Integer.parseInt(rowElements.get(WON_COLUMN).text());
+                                int gamesDrawn = Integer.parseInt(rowElements.get(DRAW_COLUMN).text());
+                                int gamesLost = Integer.parseInt(rowElements.get(LOST_COLUMN).text());
                                 int goalsFor = Integer.parseInt(rowElements.get(GOALS_FOR_COLUMN).text());
                                 int goalsAgainst = Integer.parseInt(rowElements.get(GOALS_AGAINST_COLUMN).text());
                                 int goalsDifference = Integer.parseInt(rowElements.get(GOALS_DIFFERENCE_COLUMN).text());
-                                double pointsPerMatch = Double.parseDouble(rowElements.get(POINTS_PER_MATCH).text());
+                                double pointsPerGame = Double.parseDouble(rowElements.get(POINTS_PER_MATCH).text());
 
                                 return new TeamStats(name, position, points,
-                                        matchesPlayed, matchesWon, matchesDrawn, matchesLost,
+                                        gamesPlayed, gamesWon, gamesDrawn, gamesLost,
                                         goalsFor, goalsAgainst, goalsDifference,
-                                        pointsPerMatch);
+                                        pointsPerGame);
                             })
                     .collect(Collectors.toList());
         } catch (Exception e) {

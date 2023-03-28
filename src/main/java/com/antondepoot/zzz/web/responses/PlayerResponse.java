@@ -1,6 +1,6 @@
 package com.antondepoot.zzz.web.responses;
 
-import com.antondepoot.zzz.domain.entities.Player;
+import com.antondepoot.zzz.domain.Player;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.Value;
@@ -28,11 +28,11 @@ public class PlayerResponse {
 
     public static PlayerResponse from(final Player player) {
         return builder()
-                .id(player.getId())
-                .firstName(player.getFirstName())
-                .lastName(player.getLastName())
-                .nickname(player.getNickname())
-                .number(player.getNumber())
+                .id(player.id())
+                .firstName(player.firstName())
+                .lastName(player.lastName())
+                .nickname(player.nickname())
+                .number(player.number())
                 .build();
     }
 }

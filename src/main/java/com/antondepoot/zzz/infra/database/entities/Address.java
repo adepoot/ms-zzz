@@ -1,4 +1,4 @@
-package com.antondepoot.zzz.domain.entities;
+package com.antondepoot.zzz.infra.database.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;

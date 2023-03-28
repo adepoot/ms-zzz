@@ -1,7 +1,7 @@
 package com.antondepoot.zzz.infra.web;
 
 import com.antondepoot.zzz.domain.StandingRepo;
-import com.antondepoot.zzz.domain.entities.TeamStats;
+import com.antondepoot.zzz.domain.TeamStats;
 import com.antondepoot.zzz.services.AppProperties;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;

@@ -1,7 +1,7 @@
 package com.antondepoot.zzz.web.responses;
 
-import com.antondepoot.zzz.domain.entities.Goal;
-import com.antondepoot.zzz.domain.entities.Player;
+import com.antondepoot.zzz.domain.Goal;
+import com.antondepoot.zzz.domain.Player;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.Value;

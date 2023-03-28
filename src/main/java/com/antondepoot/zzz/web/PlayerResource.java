@@ -1,8 +1,8 @@
 package com.antondepoot.zzz.web;
 
-import com.antondepoot.zzz.domain.entities.Goal;
-import com.antondepoot.zzz.domain.entities.Player;
-import com.antondepoot.zzz.domain.entities.Saves;
+import com.antondepoot.zzz.domain.Goal;
+import com.antondepoot.zzz.domain.Player;
+import com.antondepoot.zzz.domain.Save;
 import com.antondepoot.zzz.services.PlayerService;
 import com.antondepoot.zzz.services.StatisticsService;
 import com.antondepoot.zzz.web.responses.PlayerResponse;
@@ -50,7 +50,7 @@ class PlayerResource {
         final int games = this.statisticsService.getGamesFor(id).size();
         final int goals = this.statisticsService.getGoalsFor(id).size();
         final int assists = this.statisticsService.getAssistsFor(id).size();
-        final int saves = this.statisticsService.getSavesFor(id).stream().mapToInt(Saves::getCount).sum();
+        final int saves = this.statisticsService.getSavesFor(id).stream().mapToInt(Save::count).sum();
 
         return new StatsResponse(PlayerResponse.from(player), games, goals, assists, saves);
     }
@@ -61,7 +61,7 @@ class PlayerResource {
 
         List<StatsDetailResponse> response = new ArrayList<>();
         goals.stream()
-                .collect(groupingBy(goal -> Optional.ofNullable(goal.getAssister())))
+                .collect(groupingBy(Goal::assister))
                 .forEach((player, goalz) -> response.add(StatsDetailResponse.from(player, goalz)));
 
         return response;
@@ -73,7 +73,7 @@ class PlayerResource {
 
         List<StatsDetailResponse> response = new ArrayList<>();
         goals.stream()
-                .collect(groupingBy(goal -> Optional.ofNullable(goal.getScorer())))
+                .collect(groupingBy(goal -> Optional.ofNullable(goal.scorer())))
                 .forEach((player, goalz) -> response.add(StatsDetailResponse.from(player, goalz)));
 
         return response;

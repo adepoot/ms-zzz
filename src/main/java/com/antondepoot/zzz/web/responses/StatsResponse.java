@@ -23,4 +23,7 @@ public class StatsResponse {
     @JsonProperty("saves")
     int saves;
 
+//    @JsonProperty("avg_goals_against_per_game")
+//    Double averageGoalsAgainstPerGame;
+
 }

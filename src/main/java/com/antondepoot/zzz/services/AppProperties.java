@@ -1,6 +1,6 @@
 package com.antondepoot.zzz.services;
 
-import com.antondepoot.zzz.domain.entities.Season;
+import com.antondepoot.zzz.domain.Season;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

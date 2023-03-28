@@ -1,4 +1,4 @@
-package com.antondepoot.zzz.domain.entities;
+package com.antondepoot.zzz.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,8 +1,8 @@
 package com.antondepoot.zzz.services;
 
+import com.antondepoot.zzz.domain.Player;
 import com.antondepoot.zzz.domain.PlayerRepository;
-import com.antondepoot.zzz.domain.entities.Player;
-import com.antondepoot.zzz.domain.entities.Season;
+import com.antondepoot.zzz.domain.Season;
 import com.antondepoot.zzz.domain.exceptions.PlayerNotFound;
 import org.springframework.stereotype.Service;
 
@@ -30,5 +30,7 @@ public class PlayerService {
     public List<Player> getPlayers() {
         return this.playerRepository.findAll(currentSeason);
     }
+
+
 
 }

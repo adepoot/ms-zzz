@@ -1,6 +1,7 @@
-package com.antondepoot.zzz.domain.entities;
+package com.antondepoot.zzz.infra.database.entities;
 
 
+import com.antondepoot.zzz.domain.Player;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,7 +21,7 @@ import java.util.UUID;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Player {
+public class PlayerEntity {
 
     @Id
     private UUID id;
@@ -52,19 +53,27 @@ public class Player {
     private Instant deletedAt;
 
     @OneToMany(mappedBy = "scorer")
-    private Collection<Goal> goals;
+    private Collection<GoalEntity> goals;
 
     @OneToMany(mappedBy = "assister")
-    private Collection<Goal> assists;
+    private Collection<GoalEntity> assists;
 
     @OneToMany(mappedBy = "keeper")
-    private Collection<Saves> saves;
+    private Collection<SavesEntity> saves;
 
     @ManyToMany(mappedBy = "players")
-    private Collection<Game> games;
+    private Collection<GameEntity> games;
 
-    public String getFullName() {
-        return this.getFirstName() + " " + this.getLastName();
+    public Player toPlayer() {
+        return Player.builder()
+                .id(this.id)
+                .firstName(this.firstName)
+                .lastName(this.lastName)
+                .nickname(this.nickname)
+                .number(this.number)
+                .birthday(this.birthday)
+                .email(this.email)
+                .build();
     }
 
 }

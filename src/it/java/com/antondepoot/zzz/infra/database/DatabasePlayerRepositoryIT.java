@@ -1,7 +1,6 @@
 package com.antondepoot.zzz.infra.database;
 
-import com.antondepoot.zzz.TestData;
-import com.antondepoot.zzz.domain.entities.Player;
+import com.antondepoot.zzz.domain.Player;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
@@ -23,7 +22,7 @@ class DatabasePlayerRepositoryIT {
     @Test
     void finds_player_by_id() {
         var id = UUID.randomUUID();
-        Player expected = persist(TestData.aPlayerWithId(id));
+        Player expected = persist(TestData.aPlayerWithId(id)).toPlayer();
 
         Optional<Player> response = this.repository.findById(id);
 
@@ -39,7 +38,6 @@ class DatabasePlayerRepositoryIT {
 
         assertThat(response).isEmpty();
     }
-
 
     private <E> E persist(E entity) {
         return this.testEntityManager.persistAndFlush(entity);

@@ -1,8 +1,9 @@
 package com.antondepoot.zzz.infra.database;
 
+import com.antondepoot.zzz.domain.Save;
 import com.antondepoot.zzz.domain.SavesRepository;
-import com.antondepoot.zzz.domain.entities.Saves;
-import com.antondepoot.zzz.domain.entities.Season;
+import com.antondepoot.zzz.domain.Season;
+import com.antondepoot.zzz.infra.database.entities.SavesEntity;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
 
@@ -21,9 +22,12 @@ public class DatabaseSavesRepository implements SavesRepository {
     }
 
     @Override
-    public List<Saves> findAllSavesForPlayer(UUID id, Season season) {
+    public List<Save> findAllSavesForPlayer(UUID id, Season season) {
         return this.repository.findSavesByKeeper_IdAndGame_Date_AfterAndGame_Date_Before(
-                id, season.getStart(), season.getEnd(), SORT);
+                        id, season.getStart(), season.getEnd(), SORT)
+                .stream()
+                .map(SavesEntity::toSave)
+                .toList();
     }
 
 }

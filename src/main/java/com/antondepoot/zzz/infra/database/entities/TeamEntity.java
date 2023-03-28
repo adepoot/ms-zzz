@@ -1,5 +1,6 @@
-package com.antondepoot.zzz.domain.entities;
+package com.antondepoot.zzz.infra.database.entities;
 
+import com.antondepoot.zzz.domain.Team;
 import lombok.Getter;
 
 import javax.persistence.*;
@@ -9,7 +10,7 @@ import java.util.UUID;
 @Entity
 @Table(name = "teams")
 @Getter
-public class Team {
+public class TeamEntity {
 
     @Id
     private UUID id;
@@ -28,9 +29,13 @@ public class Team {
     private Address address;
     
     @OneToMany(mappedBy = "homeTeam")
-    private Collection<Game> homeGames;
+    private Collection<GameEntity> homeGames;
 
     @OneToMany(mappedBy = "awayTeam")
-    private Collection<Game> awayGames;
+    private Collection<GameEntity> awayGames;
+
+    public Team toTeam() {
+        return new Team(this.id, this.name);
+    }
 
 }

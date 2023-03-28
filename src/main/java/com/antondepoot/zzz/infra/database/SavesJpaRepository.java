@@ -1,6 +1,6 @@
 package com.antondepoot.zzz.infra.database;
 
-import com.antondepoot.zzz.domain.entities.Saves;
+import com.antondepoot.zzz.infra.database.entities.SavesEntity;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -10,9 +10,9 @@ import java.util.List;
 import java.util.UUID;
 
 @Repository
-public interface SavesJpaRepository extends JpaRepository<Saves, UUID> {
+public interface SavesJpaRepository extends JpaRepository<SavesEntity, UUID> {
 
-    List<Saves> findSavesByKeeper_IdAndGame_Date_AfterAndGame_Date_Before(
+    List<SavesEntity> findSavesByKeeper_IdAndGame_Date_AfterAndGame_Date_Before(
             final UUID id, final Instant start, final Instant end, final Sort sort);
 
 }

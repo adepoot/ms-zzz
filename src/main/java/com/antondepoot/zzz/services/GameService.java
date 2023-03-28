@@ -1,8 +1,8 @@
 package com.antondepoot.zzz.services;
 
+import com.antondepoot.zzz.domain.Game;
 import com.antondepoot.zzz.domain.GameRepository;
-import com.antondepoot.zzz.domain.entities.Game;
-import com.antondepoot.zzz.domain.entities.Season;
+import com.antondepoot.zzz.domain.Season;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

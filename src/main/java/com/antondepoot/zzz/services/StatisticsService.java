@@ -1,12 +1,6 @@
 package com.antondepoot.zzz.services;
 
-import com.antondepoot.zzz.domain.GameRepository;
-import com.antondepoot.zzz.domain.GoalRepository;
-import com.antondepoot.zzz.domain.SavesRepository;
-import com.antondepoot.zzz.domain.entities.Game;
-import com.antondepoot.zzz.domain.entities.Goal;
-import com.antondepoot.zzz.domain.entities.Saves;
-import com.antondepoot.zzz.domain.entities.Season;
+import com.antondepoot.zzz.domain.*;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -49,7 +43,7 @@ public class StatisticsService {
     }
 
     @Transactional
-    public List<Saves> getSavesFor(final UUID playerId) {
+    public List<Save> getSavesFor(final UUID playerId) {
         return this.savesRepository.findAllSavesForPlayer(playerId, currentSeason);
     }
 

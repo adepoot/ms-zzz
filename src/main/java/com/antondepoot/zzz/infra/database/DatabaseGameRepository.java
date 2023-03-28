@@ -1,8 +1,9 @@
 package com.antondepoot.zzz.infra.database;
 
+import com.antondepoot.zzz.domain.Game;
 import com.antondepoot.zzz.domain.GameRepository;
-import com.antondepoot.zzz.domain.entities.Game;
-import com.antondepoot.zzz.domain.entities.Season;
+import com.antondepoot.zzz.domain.Season;
+import com.antondepoot.zzz.infra.database.entities.GameEntity;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
 
@@ -22,12 +23,17 @@ public class DatabaseGameRepository implements GameRepository {
 
     @Override
     public List<Game> findAll(Season season) {
-        return repository.findGamesByDate_AfterAndDate_Before(season.getStart(), season.getEnd(), SORT);
+        return repository.findGamesByDate_AfterAndDate_Before(season.getStart(), season.getEnd(), SORT).stream()
+                .map(GameEntity::toBasicGame)
+                .toList();
     }
 
     @Override
     public List<Game> findAllGamesForPlayer(UUID id, Season season) {
         return this.repository.findGamesByPlayers_IdAndDate_AfterAndDate_Before(
-                id, season.getStart(), season.getEnd(), SORT);
+                id, season.getStart(), season.getEnd(), SORT).stream()
+                .map(GameEntity::toBasicGame)
+                .toList();
     }
+
 }

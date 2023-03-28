@@ -22,17 +22,17 @@ class TeamResource {
     List<TeamStatsResponse> getCurrentStandings() {
         return this.retrieveStandings.getCurrent().stream()
                 .map(stats -> new TeamStatsResponse(
-                        stats.getName(),
-                        stats.getPosition(),
-                        stats.getPoints(),
-                        stats.getGamesPlayed(),
-                        stats.getGamesWon(),
-                        stats.getGamesDrawn(),
-                        stats.getGamesLost(),
-                        stats.getGoalsFor(),
-                        stats.getGoalsAgainst(),
-                        stats.getGoalsDifference(),
-                        stats.getPointsPerGame()
+                        stats.name(),
+                        stats.position(),
+                        stats.points(),
+                        stats.gamesPlayed(),
+                        stats.gamesWon(),
+                        stats.gamesDrawn(),
+                        stats.gamesLost(),
+                        stats.goalsFor(),
+                        stats.goalsAgainst(),
+                        stats.goalsDifference(),
+                        stats.pointsPerGame()
                 )).toList();
     }
 

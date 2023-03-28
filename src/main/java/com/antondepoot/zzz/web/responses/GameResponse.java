@@ -1,6 +1,6 @@
 package com.antondepoot.zzz.web.responses;
 
-import com.antondepoot.zzz.domain.entities.Game;
+import com.antondepoot.zzz.domain.Game;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.Value;
@@ -35,12 +35,12 @@ public class GameResponse {
 
     public static GameResponse from(final Game game) {
         return GameResponse.builder()
-                .id(game.getId())
-                .date(DATE_FORMATTER.format(Date.from(game.getDate())))
-                .homeTeam(game.getHomeTeam().getName())
-                .awayTeam(game.getAwayTeam().getName())
-                .homeScore(game.getHomeScore())
-                .awayScore(game.getAwayScore())
+                .id(game.id())
+                .date(DATE_FORMATTER.format(Date.from(game.date())))
+                .homeTeam(game.homeTeam().name())
+                .awayTeam(game.awayTeam().name())
+                .homeScore(game.homeScore())
+                .awayScore(game.awayScore())
                 .build();
     }
 

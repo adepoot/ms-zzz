@@ -1,5 +1,6 @@
 package com.antondepoot.zzz.web;
 
+import com.antondepoot.zzz.domain.Game;
 import com.antondepoot.zzz.domain.Goal;
 import com.antondepoot.zzz.domain.Player;
 import com.antondepoot.zzz.domain.Save;
@@ -47,12 +48,13 @@ class PlayerResource {
     @GetMapping("/{id}/stats")
     StatsResponse getPlayerStats(@PathVariable("id") final UUID id) {
         final Player player = this.playerService.getPlayer(id);
-        final int games = this.statisticsService.getGamesFor(id).size();
+        final List<Game> games = this.statisticsService.getGamesFor(id);
         final int goals = this.statisticsService.getGoalsFor(id).size();
         final int assists = this.statisticsService.getAssistsFor(id).size();
         final int saves = this.statisticsService.getSavesFor(id).stream().mapToInt(Save::count).sum();
+        final Double averageGoalsAgainstPerGame = games.stream().mapToDouble(Game::awayScore).average().orElse(0d);
 
-        return new StatsResponse(PlayerResponse.from(player), games, goals, assists, saves);
+        return new StatsResponse(PlayerResponse.from(player), games.size(), goals, assists, saves, averageGoalsAgainstPerGame);
     }
 
     @GetMapping("/{id}/stats/goals")

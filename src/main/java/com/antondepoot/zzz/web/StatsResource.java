@@ -1,5 +1,6 @@
 package com.antondepoot.zzz.web;
 
+import com.antondepoot.zzz.domain.Game;
 import com.antondepoot.zzz.domain.Save;
 import com.antondepoot.zzz.services.PlayerService;
 import com.antondepoot.zzz.services.StatisticsService;
@@ -27,12 +28,13 @@ public class StatsResource {
     List<StatsResponse> getPlayerStatistics() {
         return this.playerService.getPlayers().stream()
                 .map(player -> {
-                    final int games = this.statisticsService.getGamesFor(player.id()).size();
+                    final List<Game> games = this.statisticsService.getGamesFor(player.id());
                     final int goals = this.statisticsService.getGoalsFor(player.id()).size();
                     final int assists = this.statisticsService.getAssistsFor(player.id()).size();
                     final int saves = this.statisticsService.getSavesFor(player.id()).stream().mapToInt(Save::count).sum();
+                    final Double averageGoalsAgainstPerGame = games.stream().mapToDouble(Game::awayScore).average().orElse(0d);
 
-                    return new StatsResponse(PlayerResponse.from(player), games, goals, assists, saves);
+                    return new StatsResponse(PlayerResponse.from(player), games.size(), goals, assists, saves, averageGoalsAgainstPerGame);
                 }).toList();
     }
 

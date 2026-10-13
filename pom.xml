@@ -21,7 +21,7 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <postgresql.version>42.5.1</postgresql.version>
-        <jsoup.version>1.15.3</jsoup.version>
+        <jsoup.version>1.23.2</jsoup.version>
         <testcontainers.version>1.17.6</testcontainers.version>
         <integration-tests.sources>${project.basedir}/src/it/java</integration-tests.sources>
         <integration-tests.resources>${project.basedir}/src/it/resources</integration-tests.resources>
